@@ -17,7 +17,7 @@ service / on new http:Listener(9097) {
         // If there's an error while fetching, return an internal server error.
         if response is error {
             return <http:InternalServerError>{
-                body: "Error while retrieving books"
+                body: "Error while retrieving users"
             };
         }
 
@@ -25,11 +25,12 @@ service / on new http:Listener(9097) {
         return response;
     }
 
+
         resource function post users(database:UserCreate user) returns http:Created|http:InternalServerError {
         sql:ExecutionResult|sql:Error response = database:insertUser(user);
         if response is error {
             return <http:InternalServerError>{
-                body: "Error while inserting book"
+                body: "Error while inserting user"
             };
         }
         return http:CREATED;
@@ -52,7 +53,7 @@ resource function patch users/[int id](database:UserUpdate book) returns http:No
 
     if response is error {
         return <http:InternalServerError>{
-            body: "Error while updating book"
+            body: "Error while updating user"
         };
     }
 

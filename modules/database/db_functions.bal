@@ -1,4 +1,5 @@
 import ballerina/sql;
+ 
 
 // Define the function to fetch books from the database.
 public isolated function getUsers() returns User[]|sql:Error {
@@ -15,6 +16,7 @@ public isolated function getUsers() returns User[]|sql:Error {
     return error("Error fetching books");
 }
 
+
 public isolated function insertUser(UserCreate payload) returns sql:ExecutionResult|sql:Error {
     return dbClient->execute(insertUserQuery(payload));
 }
@@ -26,3 +28,4 @@ public isolated function deleteUser(int userId) returns sql:ExecutionResult|sql:
 public isolated function updateUser(int userId, UserUpdate payload) returns sql:ExecutionResult|sql:Error {
     return dbClient->execute(updateUserQuery(userId, payload));
 }
+
