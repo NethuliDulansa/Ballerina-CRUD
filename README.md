@@ -2,17 +2,23 @@
 
 A RESTful CRUD (Create, Read, Update,Search, Delete) API built with [Ballerina](https://ballerina.io/) to manage user information using a MySQL backend.
 
-## 📦 Project Structure
+
+## 🗂️ Project Layout
+
+````
+
 ballerina-CRUD/
-├── service.bal # HTTP REST API Service
-├── types.bal # Common type definitions
-├── Config.toml # Environment-specific configuration
-├── modules/
-│ └── database/
-│ ├── client.bal # MySQL client configuration
-│ ├── types.bal # Database-related type definitions
-│ ├── db_queries.bal # SQL queries
-│ └── db_functions.bal # Functions for DB operations
+├── service.bal            → Main REST API
+├── types.bal              → User data types
+├── Config.toml            → DB config
+└── modules/
+└── database/
+├── client.bal     → DB connection
+├── types.bal      → DB types
+├── db\_queries.bal → SQL logic
+└── db\_functions.bal → DB handlers
+
+````
 
 ## ✅ Prerequisites
 
